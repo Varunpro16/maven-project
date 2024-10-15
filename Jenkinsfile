@@ -15,9 +15,7 @@ environment{
 tools {
   maven 'mymaven'
 }
-
 stages{
-
     stage('build')
     {
         steps {
@@ -26,35 +24,30 @@ stages{
             }
            
         }
-
-        
-
     }
-
     stage('test')
     { 
         parallel {
             stage('testA')
             {
                 steps{
-                    echo " This is test A"
-                }
-                
+                    echo " This is test A stage"
+                }           
             }
             stage('testB')
             {
                 steps{
-                echo "this is test B"
+                echo "this is test B stage"
                 }
             }
         }
-        post {
-            success {
-                 dir("webapp/target/"){
-                    stash name: "maven-build", includes: "*.war"
-                 }
-              }
-          }
+        // post {
+        //     success {
+        //          dir("webapp/target/"){
+        //             stash name: "maven-build", includes: "*.war"
+        //          }
+        //       }
+        //   }
 
     }
 
