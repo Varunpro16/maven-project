@@ -5,9 +5,9 @@ agent {
   label 'DevServer'
 }
 
-parameters {
-    choice choices: ['dev', 'prod'], name: 'select_environment'
-}
+// parameters {
+//     choice choices: ['dev', 'prod'], name: 'select_environment'
+// }
 
 environment{
     NAME = "piyush"
