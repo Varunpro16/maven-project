@@ -21,6 +21,7 @@ stages{
     {
         steps {
             script{
+                sh "mvn clean -Dskiptests=true"
                echo "this is build stage"  
             }
            
@@ -33,12 +34,14 @@ stages{
             {
                 steps{
                     echo " This is test A stage"
+                    sh "mvn test"
                 }           
             }
             stage('testB')
             {
                 steps{
-                echo "this is test B stage"
+                    echo "this is test B stage"
+                    sh "mvn test"
                 }
             }
         }
